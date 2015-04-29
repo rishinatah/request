@@ -4,7 +4,7 @@ import nltk
 from nltk import word_tokenize 
 from nltk.util import ngrams
 
-file_trigrams = open('trigrams_1','a')
+file_trigrams = open('trigrams_test','a')
 count=0
 
 # othernum = re.compile('[\d]*[,-:.][\d]+') # formatted numbers [e.g. dates, times]
@@ -12,7 +12,7 @@ count=0
 # ordinal = re.compile('[\d]+[st|nd|rd|th]', re.I) # ordinal numbers
 
 
-for filename in glob.glob('*.txt'):
+for filename in glob.glob('testing/*.txt'):
 	count = count + 1
 	print count
 

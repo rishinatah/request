@@ -14,7 +14,7 @@ label = open('training_labels_stratified_all.txt')
 # test = open('test_vectors_stratified_binary_5.txt')
 # label_test = open('test_labels_stratified_binary_5.txt')
 
-test = open('analysis_feature_vectors.txt')
+test = open('analysis_feature_vectors_test.txt')
 # label_test = open('test_labels_stratified_all.txt')
 
 # train = open('training_vectors.txt')
@@ -23,36 +23,36 @@ test = open('analysis_feature_vectors.txt')
 # train = open('random_file.txt')
 # label = open('random_file_label.txt')
 
-X=[]
-Y=[]
-X_test=[]
-Y_test=[]
+X = []
+Y = []
+X_test = []
+Y_test = []
 
 print "Getting training vectors"
 train_count = 0
 x_train = train.readline()
-while x_train:	
-	train_count = train_count+1
-	x_train_split = x_train.split()
-	x_new = []
-	for x in x_train_split:
-		x_new.append(int(x))
-	# print x_new
-	X.append(x_new)
-	x_train = train.readline()
+while x_train:
+    train_count = train_count + 1
+    x_train_split = x_train.split()
+    x_new = []
+    for x in x_train_split:
+        x_new.append(int(x))
+    # print x_new
+    X.append(x_new)
+    x_train = train.readline()
 
-# print X
+print len(X)
 
 print "Getting training labels"
 label_count = 0
 y_label = label.readline()
-while y_label:	
-	label_count = label_count+1	
-	y_label=int(y_label)
-	Y.append(y_label)	
-	y_label = label.readline()
+while y_label:
+    label_count = label_count + 1
+    y_label = int(y_label)
+    Y.append(y_label)
+    y_label = label.readline()
 
-# print Y
+print len(Y)
 
 # chi2score = chi2(X,Y)[0]
 # print len(chi2score)
@@ -62,9 +62,9 @@ while y_label:
 # plt.show()
 
 ch2 = SelectKBest(chi2, k=1500)
-X=ch2.fit_transform(X, Y)
+X = ch2.fit_transform(X, Y)
 # print X
-
+'''
 print "Getting test vectors"
 test_count = 0
 x_test = test.readline()
@@ -134,3 +134,4 @@ preds.close()
 # s = clf.score([[1,1,1],[0,0,0]],[0,1])
 # s = clf.score([[1,1,1],[0,0,0]],[0,1])
 # s = clf.predict([[1,1,1],[0,0,0]])
+'''
